@@ -12,7 +12,7 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1` in this directory and open ht
 
 - `index.html`: paper title, author list, affiliations, manuscript narrative, original figures and table, resources, and BibTeX.
 - `styles.css`: white background, Klein blue (`#002FA7`) accents, responsive editorial layout. Manrope headings and Source Sans 3 body text use locally hosted WOFF2 variable fonts; OFL license files are included in `assets/fonts/`.
-- `retro.css`: classic Macintosh-inspired window title bars, fine blue borders, offset hard shadows, an enlarged header, and a pale-blue methodology chapter. Decorative window marks are not controls; figure Open links are functional. Responsive layouts preserve the original table’s horizontal scrolling.
+- `retro.css`: the presentation layer: an enlarged header, open whitespace, restrained Klein-blue typography, subtle chapter backgrounds, and functional figure links. Responsive layouts preserve the original table’s horizontal scrolling.
 - `script.js`: related-project rendering, the preserved three-step real-world frame viewer, and BibTeX copy. Analysis disclosure uses native HTML details. No benchmark switches, custom result charts, or data cards.
 - `research-projects.js`: related lab projects in the top strip. Replace eVTA for VLA's `url: null` with the confirmed public project URL when available. Add more objects for additional projects. Missing URLs render non-clickable “Coming soon” items.
 - `assets/seekvln.bib`: manuscript citation. Keep this synchronized with `#bibtex-code` in the HTML.
