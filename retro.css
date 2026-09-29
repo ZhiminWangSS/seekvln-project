@@ -24,8 +24,8 @@
 .window-open:hover{border-color:var(--blue);text-decoration:none}
 .paper-heading{padding:35px 42px 30px}
 .paper-kicker{margin-bottom:17px;font:11px/1.5 var(--mono);letter-spacing:.15em;display:inline-block;border:1px solid #b9c7e7;padding:5px 12px}
-.title-lead{font-size:57px;line-height:1.15;margin-bottom:18px}
-.title-detail{font-size:30px;line-height:1.35;max-width:910px}
+.title-lead{font-size:57px;line-height:1.15;margin-bottom:18px;font-weight:700;letter-spacing:-.055em}
+.title-detail{font-size:30px;line-height:1.35;max-width:910px;font-weight:700;letter-spacing:-.045em}
 .paper-authors{margin-top:25px;max-width:1020px}
 .paper-authors .affiliations{max-width:970px;margin-inline:auto;margin-top:15px}
 .paper-authors .author-notes{margin-top:11px}
