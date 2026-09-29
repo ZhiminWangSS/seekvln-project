@@ -8,35 +8,38 @@ Public website: https://zhiminwangss.github.io/seekvln-project/
 
 Run `python3 -m http.server 4173 --bind 127.0.0.1` in this directory and open http://127.0.0.1:4173/. No build step or third-party runtime dependencies are needed.
 
-## Editing
+## Content and editing
 
-- `index.html`: research narrative, tables, navigation, metadata.
-- `styles.css`: responsive layout and visual styling.
-- `script.js`: three-step real-world frame viewer, benchmark switch, related-project rendering, and BibTeX copy.
-- `research-projects.js`: related lab projects shown in the top strip. To activate eVTA for VLA, replace its `url: null` with the confirmed public URL. Add more objects to list additional lab projects. Missing URLs intentionally render non-clickable “Coming soon” items.
-- `assets/seekvln.bib`: provisional manuscript citation; add the confirmed author and publication metadata here and in `#bibtex-code` together.
-- `assets/`: paper figures, extracted rollout frames, and original supplied manuscript.
+- `index.html`: paper title, author list, affiliations, manuscript narrative, original figures and table, resources, and BibTeX.
+- `styles.css`: white background, Klein blue (`#002FA7`) accents, responsive academic layout.
+- `script.js`: related-project rendering, the preserved three-step real-world frame viewer, and BibTeX copy. No benchmark switches, custom result charts, or data cards.
+- `research-projects.js`: related lab projects in the top strip. Replace eVTA for VLA's `url: null` with the confirmed public project URL when available. Add more objects for additional projects. Missing URLs render non-clickable “Coming soon” items.
+- `assets/seekvln.bib`: manuscript citation. Keep this synchronized with `#bibtex-code` in the HTML.
+- `assets/results-table.png`: original Table 1, rendered directly from page 7 of the supplied PDF at 360 dpi. Crop in rendered pixels: x=525, y=395, width=2010, height=1430. PDF hyperlink annotation outlines are hidden; table content, references, numbers, row shading, and formatting are preserved.
+- `assets/deep-dive.webp`: rendered original `Figures/deep-dive.pdf`.
 
-The page deliberately omits author/affiliation fields because the provided LaTeX author block contains template placeholders. The footer links to the hosting account's existing personal page and is not a paper authorship claim. The paper download preserves the supplied anonymous manuscript. No acceptance claim is made.
+The page follows the manuscript's Abstract, Introduction, Related Work, Methodology, Experiments, and Conclusion structure. The opening real-world viewer is retained. The title's resource row contains Paper, Code (planned), and Models (planned); BibTeX remains at the bottom of the page.
 
-The research implementation is not included. The separate SeekVLN repository remains private. “Website source” points only to this website repository.
+## Authorship
 
-## Content provenance
+The 11 authors, their order, six affiliations, and correspondence designations were supplied explicitly by the owner in this task. They appear below the title and in the downloadable citation. Only Yaowei Wang and Zhi Wang are marked corresponding authors; no equal-contribution designations were supplied.
 
-All research claims and values come from the supplied manuscript `iclr2027_conference.tex` and PDF, read on 2026-09-29. The downloaded PDF is the original supplied version (2026-09-26); the page uses the latest local LaTeX wording where it differs.
+The downloadable paper is the original supplied anonymous manuscript, unchanged. No conference acceptance or arXiv identifier has been invented. The research implementation is not included; the separate SeekVLN repository remains private.
+
+## Research provenance
+
+Research content comes from `paper-writing/iclr2027_conference.tex` and the supplied PDF, read on 2026-09-29. The PDF is the original 2026-09-26 version. Text follows the latest local source where wording differs.
 
 - Table 1: R2R-CE SR 54.8 / 61.0 / 67.5 and SPL 46.9 / 55.9 / 61.4; RxR-CE SR 52.2 / 55.7 / 59.7 and SPL 40.2 / 47.4 / 50.3 (base / FRG-SFT / C2PO-RFT).
-- Figure 3 and adaptive-trigger analysis: 100-episode R2R-CE subset; never / periodic / adaptive SR 52 / 62 / 73; seek rates 0 / 50 / 29.8; SPL 48 / 53 / 67.
-- `robot-*` and `view-*` are embedded images extracted from `Figures/real-world.pdf`. The interactive viewer shows selected still frames, not a live model or video.
-- Framework, Progress Myopia, and simulation figures are rendered from the supplied figure PDFs.
-- SR improvements of 12.7 and 7.5 are **percentage points**, not relative percentages. The 100-episode analysis is explicitly separate from the full benchmark results. The physical robot example is qualitative.
+- The adaptive-trigger analysis uses a separate 100-episode subset: never / periodic / adaptive SR 52 / 62 / 73, seek rates 0 / 50 / 29.8, SPL 48 / 53 / 67.
+- `robot-*` and `view-*` are images extracted from `Figures/real-world.pdf`. The viewer shows selected still frames, not a live model or video.
+- Framework, Progress Myopia, deep-dive, and simulation figures are rendered from the original figure PDFs.
+- SR gains of 12.7 and 7.5 are percentage points. The physical-robot rollout is qualitative.
 
-Visual references: Physical Intelligence (https://www.physicalintelligence.company/) and Thinking Machines Lab (https://thinkingmachines.ai/). Academic structure references: IGen (https://chenghaogu.github.io/IGen/) and Progress-Think (https://horizonrobotics.github.io/robot_lab/progress-think/). Their brand assets, logos, and copy are not reused.
-
-The academic layout includes the full title, paper/resource row, preserved real-world teaser, abstract, motivation, method, quantitative results, behavioral analysis, qualitative results, and BibTeX. Research code and model resources are labeled planned, not linked to the website source repository. The citation is explicitly provisional and does not invent authors, an arXiv ID, or conference acceptance.
+Academic structure references: [IGen](https://chenghaogu.github.io/IGen/) and [Progress-Think](https://horizonrobotics.github.io/robot_lab/progress-think/). Their logos, brand assets, and text are not reused.
 
 ## Deployment
 
-GitHub Pages serves the `main` branch root. `.nojekyll` enables direct static publishing. Relative asset links support the `/seekvln-project/` project path. If the repo slug changes, update canonical and Open Graph URLs in `index.html` as well as repository links.
+GitHub Pages serves the `main` branch root. `.nojekyll` enables static publishing. Relative asset paths support `/seekvln-project/`. If the repository slug changes, update canonical, Open Graph, citation, and repository URLs. When changing styles or scripts, update their version query strings in HTML to invalidate previously cached assets.
 
-Only this directory belongs in the public repository. Do not copy manuscript source directories, review notes, backups, logs, credentials, or training code into it.
+Only this directory belongs in the public repository. Do not copy manuscript sources, private reviews, backups, logs, credentials, or training code into it.

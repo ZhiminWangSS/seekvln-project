@@ -53,20 +53,3 @@ document.querySelectorAll("[data-step]").forEach(button => {
     document.getElementById("rollout-caption").textContent = step.caption;
   });
 });
-
-const benchmarks = {
-  r2r: { name: "R2R-CE", values: [54.8, 61.0, 67.5], spl: [46.9, 55.9, 61.4] },
-  rxr: { name: "RxR-CE", values: [52.2, 55.7, 59.7], spl: [40.2, 47.4, 50.3] }
-};
-document.querySelectorAll("[data-dataset]").forEach(button => {
-  button.addEventListener("click", () => {
-    const data = benchmarks[button.dataset.dataset];
-    document.querySelectorAll("[data-dataset]").forEach(item => item.setAttribute("aria-pressed", String(item === button)));
-    ["base", "sft", "rft"].forEach((key, index) => {
-      document.getElementById(`bar-${key}`).style.width = `${data.values[index]}%`;
-      document.getElementById(`value-${key}`).textContent = data.values[index].toFixed(1);
-    });
-    document.querySelector(".bar-chart").setAttribute("aria-label", `${data.name} success rate comparison`);
-    document.getElementById("spl-summary").textContent = `Path efficiency (SPL): ${data.spl.map(value => value.toFixed(1)).join(" → ")}.`;
-  });
-});
