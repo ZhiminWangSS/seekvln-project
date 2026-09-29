@@ -11,9 +11,11 @@
   <meta property="og:url" content="https://zhiminwangss.github.io/seekvln-project/">
   <link rel="canonical" href="https://zhiminwangss.github.io/seekvln-project/">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23002FA7'/%3E%3Cpath d='M14 44V20h36M32 20v24h18' fill='none' stroke='%23ffffff' stroke-width='5'/%3E%3Ccircle cx='14' cy='44' r='5' fill='%23ffffff'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=white-blue-1">
+  <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css?v=focused-1">
   <script src="research-projects.js" defer></script>
-  <script src="script.js?v=white-blue-1" defer></script>
+  <script src="script.js?v=focused-1" defer></script>
   <title>SeekVLN | Seek Before You Move: Evidence Seeking for Progress Grounding in Vision-Language Navigation</title>
 </head>
 <body>
@@ -23,7 +25,7 @@
   </aside>
   <header class="site-header wrap">
     <a class="wordmark" href="#" aria-label="SeekVLN home"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M6 28V8h24M18 8v20h12"/><circle cx="6" cy="28" r="3"/></svg>SeekVLN</a>
-    <nav aria-label="Main navigation"><a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#results">Results</a><a href="#bibtex">BibTeX</a><a class="nav-paper" href="assets/seekvln-paper.pdf" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a></nav>
+    <nav aria-label="Main navigation"><a href="#idea">Motivation</a><a href="#method">Method</a><a href="#results">Results</a><a class="nav-paper" href="assets/seekvln-paper.pdf" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a></nav>
   </header>
   <main id="main">
     <section class="hero wrap" aria-labelledby="hero-title">
@@ -40,7 +42,7 @@
           <span class="resource-button unavailable"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m6 5-5 5 5 5m8-10 5 5-5 5M12 3 8 17"/></svg>Code <small>Planned</small></span>
           <span class="resource-button unavailable"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m10 2 8 4v8l-8 4-8-4V6zm-8 4 8 4 8-4m-8 4v8"/></svg>Models <small>Planned</small></span>
         </div>
-        <p class="paper-tldr"><strong>TL;DR</strong> SeekVLN learns when to acquire missing visual evidence and uses it to ground task progress before taking the next navigation action.</p>
+        <p class="paper-tldr"><strong>The idea</strong> Learn when to look for missing evidence—then use it to decide where to go.</p>
       </div>
       <figure class="rollout" id="rollout">
         <div class="rollout-top"><span class="eyebrow">From the real-world rollout</span><span class="eyebrow">Unitree Go2 · Selected frames</span></div>
@@ -59,65 +61,43 @@
     </section>
 
 
-    <section class="paper-section wrap" id="abstract" aria-labelledby="abstract-title">
-      <h2 id="abstract-title">Abstract</h2>
-      <p>Vision-Language Navigation (VLN) requires agents to continuously ground task progress from long-horizon instructions and partial egocentric observations. Existing VLM-based navigation agents typically reason only over available observations and may remain confident even when task-relevant evidence is missing. We term this failure mode <strong>Progress Myopia</strong>: the agent fails to recognize unreliable progress grounding and continues acting on insufficient evidence.</p>
-      <p>We propose <strong>SeekVLN</strong>, an evidence-seeking framework that couples semantic progress reasoning with active acquisition of task-relevant observations. <strong>Future-guided Reverse Generation (FRG)</strong> uses future expert actions to augment offline expert trajectories with supplementary views and evidence annotations. Supervised fine-tuning establishes a prior for evidence seeking and progress reasoning without additional expert interaction. <strong>Counterfactual Contrastive Policy Optimization (C2PO)</strong> then compares evidence-seeking and direct-navigation branches from the same state, assigning credit to seeking decisions based on their subsequent navigation benefit.</p>
-      <p>On the validation-unseen splits, SeekVLN improves success rate over the base model by 12.7 percentage points on R2R-CE and 7.5 percentage points on RxR-CE. Simulated and real-world evaluations exhibit evidence-seeking behavior for more reliable progress grounding.</p>
-    </section>
+    <nav class="page-outline wrap" aria-label="Explore the research">
+      <a href="#idea"><span>01</span><div>Problem &amp; motivation<small>Recognizing missing evidence</small></div><b aria-hidden="true">↓</b></a>
+      <a href="#method"><span>02</span><div>Methodology<small>Learning to seek and reason</small></div><b aria-hidden="true">↓</b></a>
+      <a href="#results"><span>03</span><div>Results<small>Evaluating navigation gains</small></div><b aria-hidden="true">↓</b></a>
+    </nav>
 
-    <section class="paper-section wrap" id="idea" aria-labelledby="introduction-title">
-      <h2 id="introduction-title">1. Introduction</h2>
-      <p>Reliable navigation requires an agent to determine which instruction subgoals have been completed and where to go next. Partial egocentric observations and ambiguous instructions may leave the agent without the evidence needed to make this decision. A landmark can lie outside the current field of view, or a fork can present multiple plausible directions.</p>
-      <p>Representative navigation models show similar decision confidence on matched successful and failed segments. This motivates Progress Myopia: an agent can continue acting confidently despite unreliable progress grounding. SeekVLN addresses this limitation by learning to acquire task-relevant observations before deciding how to move.</p>
+    <section class="focus-section wrap" id="idea" aria-labelledby="motivation-title">
+      <span id="abstract" class="anchor-alias"></span>
+      <div class="section-heading"><span class="section-number">01</span><div><div class="section-kicker">Problem &amp; motivation</div><h2 id="motivation-title">Progress Myopia</h2></div></div>
+      <div class="section-intro"><p class="section-lead">The next step depends on evidence<br class="desktop-break"> the agent may not see.</p><div><p>A landmark can lie outside the camera’s view. An instruction can leave a turn ambiguous. Yet navigation agents may remain confident and keep moving on insufficient evidence.</p><p>We call this <strong>Progress Myopia</strong>. SeekVLN learns to acquire the observations needed to ground task progress before committing to an action.</p></div></div>
       <figure class="paper-figure"><a href="assets/progress-myopia.webp" target="_blank" rel="noopener"><img src="assets/progress-myopia.webp" width="1600" height="900" alt="Figure 1 from the paper: out-of-view landmarks, ambiguous instructions, and decision-confidence analysis of Progress Myopia." loading="lazy"></a><figcaption><strong>Figure 1.</strong> Illustration of Progress Myopia. Missing landmarks and ambiguous instructions make the current observation insufficient; unreliable navigation decisions can nevertheless remain highly confident.</figcaption></figure>
     </section>
 
-    <section class="paper-section wrap" id="related-work" aria-labelledby="related-work-title">
-      <h2 id="related-work-title">2. Related Work</h2>
-      <p><strong>VLM-based vision-language navigation.</strong> Recent agents improve visual understanding, history modeling, and long-horizon planning using vision-language models. SeekVLN focuses on acquiring missing evidence when the available observations are insufficient for the next navigation decision.</p>
-      <p><strong>Progress reasoning and grounding.</strong> Prior methods track navigation progress through visual-textual representations, linguistic reasoning, landmark representations, or uncertainty-aware reasoning. SeekVLN couples semantic progress reasoning with active acquisition of task-relevant views.</p>
-      <p><strong>Reinforcement learning for navigation.</strong> Navigation rewards often evaluate task success or path progress. C2PO introduces a counterfactual comparison to assign credit to a seeking decision according to its subsequent navigation benefit. Detailed references are provided in the paper.</p>
-    </section>
-
-    <section class="paper-section wrap" id="method" aria-labelledby="method-title">
-      <h2 id="method-title">3. Methodology</h2>
-      <p>SeekVLN combines dual-mode navigation with two-stage training: supervised fine-tuning on FRG annotations, followed by reinforcement fine-tuning with C2PO.</p>
+    <section class="focus-section wrap" id="method" aria-labelledby="method-title">
+      <div class="section-heading"><span class="section-number">02</span><div><div class="section-kicker">Methodology</div><h2 id="method-title">Learn to seek useful evidence.</h2></div></div>
+      <p class="section-summary">SeekVLN chooses between navigating directly and seeking additional views. After seeking, it identifies the relevant evidence, reasons about completed and upcoming subgoals, and acts. Two training stages teach this behavior.</p>
+      <div class="method-stages">
+        <article><div class="stage-label">Stage 1 · Supervised fine-tuning</div><h3><span>FRG</span> Build the seeking prior.</h3><p><strong>Future-guided Reverse Generation</strong> works backward from future expert actions to enrich offline trajectories with supplementary views and evidence annotations. This provides seeking and progress-reasoning supervision without additional expert interaction.</p></article>
+        <article><div class="stage-label">Stage 2 · Reinforcement fine-tuning</div><h3><span>C2PO</span> Reward useful seeking.</h3><p><strong>Counterfactual Contrastive Policy Optimization</strong> compares seeking and direct-navigation branches from the same state. Their difference in subsequent progress assigns credit to the seeking decision.</p></article>
+      </div>
       <figure class="paper-figure"><a href="assets/framework.webp" target="_blank" rel="noopener"><img src="assets/framework.webp" width="2200" height="1238" alt="Figure 2: SeekVLN dual-mode navigation, FRG supervision, and C2PO counterfactual branch comparison." loading="lazy"></a><figcaption><strong>Figure 2.</strong> Overview of SeekVLN. The policy decides whether to navigate or seek evidence. FRG constructs supervision from offline trajectories, and C2PO jointly optimizes seeking and navigation.</figcaption></figure>
-      <h3>3.1 Evidence-Seeking Navigation Framework</h3>
-      <p>At each decision, the policy receives the instruction, current observation, and sampled visual history. It selects <code>NAV</code> to predict a navigation action directly, or <code>SEEK</code> to acquire supplementary left, front, and right views. After seeking, it identifies key evidence, reasons about completed and upcoming subgoals, and predicts the next action.</p>
-      <h3>3.2 Future-Guided Reverse Generation</h3>
-      <p>FRG reasons backward from future expert actions to determine where supplementary observations may be useful. An annotator VLM identifies task-relevant evidence in the selected views and produces structured progress annotations. These annotations augment offline expert trajectories, establishing an evidence-seeking prior through supervised fine-tuning without additional expert interaction.</p>
-      <h3>3.3 Counterfactual Contrastive Policy Optimization</h3>
-      <p>Whenever the policy chooses to seek during reinforcement fine-tuning, C2PO clones the simulator state, observation history, and model context. It compares the factual seeking branch with a counterfactual branch whose initial decision is forced to direct navigation. The difference in short-horizon progress supplies a contrastive reward, combined with an episode-level adaptive outcome reward. Counterfactual branch rollouts are used only during training.</p>
+      <p class="figure-note">Counterfactual branches are sampled during training only; evaluation uses a single navigation policy.</p>
     </section>
 
-    <section class="paper-section wrap" id="results" aria-labelledby="results-title">
-      <h2 id="results-title">4. Experiments</h2>
-      <h3>4.1 Experimental Setting</h3>
-      <p>Experiments use Habitat with Matterport3D scenes and the validation-unseen splits of R2R-CE and RxR-CE. Evaluation reports Navigation Error (NE), Oracle Success Rate (OSR), Success Rate (SR), Success weighted by Path Length (SPL), and normalized Dynamic Time Warping (nDTW), following the respective benchmark protocols.</p>
-      <p>SeekVLN is initialized from Aux-Think. FRG supervision is constructed from 4,000 R2R-CE training episodes, followed by C2PO reinforcement fine-tuning on 640 sampled training episodes. Training and evaluation details are provided in the manuscript.</p>
-      <h3>4.2 Main Results</h3>
+    <section class="focus-section wrap" id="results" aria-labelledby="results-title">
+      <div class="section-heading"><span class="section-number">03</span><div><div class="section-kicker">Results</div><h2 id="results-title">More reliable navigation.</h2></div></div>
+      <p class="section-summary">Both training stages improve performance over Aux-Think. On R2R-CE and RxR-CE validation-unseen, the full model improves success rate by <strong>12.7 and 7.5 percentage points</strong>, respectively. The complete benchmark comparison is reproduced below.</p>
       <figure class="paper-figure original-table"><div class="table-scroll" role="region" aria-label="Original Table 1 from the paper; horizontally scrollable on narrow screens" tabindex="0"><a href="assets/results-table.png" target="_blank" rel="noopener" aria-label="Open the original benchmark table at full resolution"><img src="assets/results-table.png" width="2010" height="1430" alt="Original Table 1 comparing 20 methods and all reported R2R-CE and RxR-CE validation-unseen metrics. SeekVLN-C2PO-RFT achieves R2R NE 3.7, OSR 75.2, SR 67.5, SPL 61.4; RxR NE 4.9, SR 59.7, SPL 50.3, nDTW 63.6." loading="lazy"></a></div><figcaption>Original Table 1 from the manuscript. <a href="assets/seekvln-paper.pdf#page=7" target="_blank" rel="noopener">View in the paper ↗</a></figcaption></figure>
-      <p>FRG-SFT improves SR from 54.8 to 61.0 on R2R-CE and from 52.2 to 55.7 on RxR-CE. C2PO-RFT further increases SR to 67.5 and 59.7, respectively. Relative to the base model, the full approach improves SR by 12.7 and 7.5 percentage points, and SPL by 14.5 and 10.1 points.</p>
-      <h3 id="behavior">4.3 Deep Dive into Evidence-Seeking Behavior</h3>
-      <p><strong>Adaptive triggering.</strong> On a 100-episode R2R-CE validation-unseen subset, adaptive seeking reaches 73% SR and 67% SPL with a 29.8% seek rate. Never seeking reaches 52% SR and 48% SPL; periodic seeking reaches 62% SR and 53% SPL with a 50% seek rate. This controlled subset analysis is separate from the full benchmark results in Table 1.</p>
-      <figure class="paper-figure"><a href="assets/deep-dive.webp" target="_blank" rel="noopener"><img src="assets/deep-dive.webp" width="2400" height="752" alt="Original paper Figure 3: trigger strategy comparison, beneficial action change rate during training, and progress gain from evidence seeking." loading="lazy"></a><figcaption><strong>Figure 3.</strong> Deep analysis of evidence-seeking behavior, reproduced from the paper.</figcaption></figure>
-      <p><strong>Evidence usefulness.</strong> During reinforcement fine-tuning, the beneficial action change rate increases from 45.6% to 55.9%, while mean short-horizon progress gain rises from 6.4 × 10<sup>−3</sup> to 16.1 × 10<sup>−3</sup>. These measurements examine whether acquired evidence improves subsequent navigation.</p>
-      <h3 id="qualitative">4.4 Qualitative Results</h3>
-      <figure class="paper-figure"><a href="assets/simulation.webp" target="_blank" rel="noopener"><img src="assets/simulation.webp" width="2000" height="1125" alt="Original simulation rollout figure showing evidence seeking for a dining area and a hallway beyond a kitchen island." loading="lazy"></a><figcaption><strong>Figure 4.</strong> Two SEEK decisions in a simulated trajectory. The agent first locates the dining area on the left, then identifies a hallway beyond the kitchen island on the right.</figcaption></figure>
-      <p>In the real-world rollout shown at the top of this page, the forward observation does not reveal the destination chair. SeekVLN acquires a side view, identifies the chair on its left, and completes the task. This qualitative demonstration illustrates evidence seeking under partial observation and instruction ambiguity; it does not establish a real-world benchmark success rate.</p>
-    </section>
-
-    <section class="paper-section wrap" id="conclusion" aria-labelledby="conclusion-title">
-      <h2 id="conclusion-title">5. Conclusion</h2>
-      <p>SeekVLN addresses Progress Myopia through active evidence seeking for reliable progress grounding. FRG derives an initial behavior prior from offline demonstrations, and C2PO refines seeking decisions through counterfactual credit assignment. Benchmark results and qualitative rollouts show the value of learning when to acquire evidence and how to use it for navigation under partial observation.</p>
+      <p class="results-note">FRG-SFT establishes the initial behavior; C2PO further improves when to seek and how to use the acquired evidence. Full results and evaluation protocols are available in the <a href="assets/seekvln-paper.pdf" target="_blank" rel="noopener">paper ↗</a>.</p>
+      <details class="research-detail" id="behavior"><summary><div><span class="detail-label">Behavioral analysis</span><h3>Does seeking more often help?</h3></div><span class="expand-icon" aria-hidden="true">+</span></summary><div class="detail-content"><p>On a separate 100-episode R2R-CE subset, adaptive seeking reaches 73% success with a 29.8% seek rate. Periodic seeking reaches 62% success while seeking at 50% of decisions. This supports learning <em>when</em> evidence is needed.</p><figure class="paper-figure"><a href="assets/deep-dive.webp" target="_blank" rel="noopener"><img src="assets/deep-dive.webp" width="2400" height="752" alt="Original paper Figure 3: trigger strategy comparison, beneficial action change rate during training, and progress gain from evidence seeking." loading="lazy"></a><figcaption><strong>Figure 3.</strong> Deep analysis of evidence-seeking behavior, reproduced from the paper.</figcaption></figure><p>During reinforcement fine-tuning, beneficial action changes increase from 45.6% to 55.9%. Mean short-horizon progress gain also improves, indicating that the acquired evidence increasingly benefits navigation.</p></div></details>
+      <details class="research-detail" id="qualitative"><summary><div><span class="detail-label">Qualitative results</span><h3>What evidence does the agent find?</h3></div><span class="expand-icon" aria-hidden="true">+</span></summary><div class="detail-content"><p>In simulation, side views reveal a dining area and a hallway beyond a kitchen island. The physical-robot example at the top of this page shows the same principle: locate the unseen chair before turning toward it.</p><figure class="paper-figure"><a href="assets/simulation.webp" target="_blank" rel="noopener"><img src="assets/simulation.webp" width="2000" height="1125" alt="Original simulation rollout figure showing evidence seeking for a dining area and a hallway beyond a kitchen island." loading="lazy"></a><figcaption><strong>Figure 4.</strong> Two SEEK decisions in a simulated trajectory. The agent first locates the dining area on the left, then identifies a hallway beyond the kitchen island on the right.</figcaption></figure><p class="figure-note">The physical-robot rollout is qualitative and does not establish a real-world benchmark success rate.</p></div></details>
     </section>
 
     <section class="citation-section" id="bibtex" aria-labelledby="bibtex-title"><div class="wrap section">
 
       <div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><a class="text-link" href="assets/seekvln.bib" download>Download .bib <span aria-hidden="true">↓</span></a></div>
-      <p class="citation-note">Manuscript citation. Publication metadata will be updated when available.</p>
+      <p class="citation-note">Cite the manuscript.</p>
       <div class="bibtex-panel"><div class="bibtex-toolbar"><span>seekvln.bib</span><button type="button" id="copy-bibtex">Copy BibTeX</button></div><pre><code id="bibtex-code">@misc{seekvln2026,
   title = {Seek Before You Move: Evidence Seeking for Progress Grounding in Vision-Language Navigation},
   author = {Wang, Zhimin and Zhu, Meiyuan and Kang, Linjia and Wu, Duo and Wang, Yajun and Ni, Yuan and Wang, Xiaohang and Pan, Tianlu and Jiang, Jingyan and Wang, Yaowei and Wang, Zhi},

@@ -11,14 +11,14 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1` in this directory and open ht
 ## Content and editing
 
 - `index.html`: paper title, author list, affiliations, manuscript narrative, original figures and table, resources, and BibTeX.
-- `styles.css`: white background, Klein blue (`#002FA7`) accents, responsive academic layout.
-- `script.js`: related-project rendering, the preserved three-step real-world frame viewer, and BibTeX copy. No benchmark switches, custom result charts, or data cards.
+- `styles.css`: white background, Klein blue (`#002FA7`) accents, responsive editorial layout. Manrope headings and Source Sans 3 body text use locally hosted WOFF2 variable fonts; OFL license files are included in `assets/fonts/`.
+- `script.js`: related-project rendering, the preserved three-step real-world frame viewer, and BibTeX copy. Analysis disclosure uses native HTML details. No benchmark switches, custom result charts, or data cards.
 - `research-projects.js`: related lab projects in the top strip. Replace eVTA for VLA's `url: null` with the confirmed public project URL when available. Add more objects for additional projects. Missing URLs render non-clickable “Coming soon” items.
 - `assets/seekvln.bib`: manuscript citation. Keep this synchronized with `#bibtex-code` in the HTML.
 - `assets/results-table.png`: original Table 1, rendered directly from page 7 of the supplied PDF at 360 dpi. Crop in rendered pixels: x=525, y=395, width=2010, height=1430. PDF hyperlink annotation outlines are hidden; table content, references, numbers, row shading, and formatting are preserved.
 - `assets/deep-dive.webp`: rendered original `Figures/deep-dive.pdf`.
 
-The page follows the manuscript's Abstract, Introduction, Related Work, Methodology, Experiments, and Conclusion structure. The opening real-world viewer is retained. The title's resource row contains Paper, Code (planned), and Models (planned); BibTeX remains at the bottom of the page.
+The main narrative has three sections: Problem & Motivation, Methodology, and Results. Repeated abstract, related-work, and conclusion copy has been condensed into this narrative. Chapter numbering, a three-part reading guide, and two short method columns provide visual hierarchy. Original behavioral-analysis and qualitative-result figures remain in expandable supplements. The opening real-world viewer is retained. The title's resource row contains Paper, Code (planned), and Models (planned); BibTeX remains at the bottom of the page.
 
 ## Authorship
 
