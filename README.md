@@ -12,14 +12,14 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1` in this directory and open ht
 
 - `index.html`: paper title, author list, affiliations, manuscript narrative, original figures and table, arXiv paper links, and BibTeX.
 - `styles.css`: base layout and responsive behavior.
-- `editorial.css`: final black, white, and warm beige presentation with Newsreader display and reading text, DM Sans interface text, a softened demo perimeter, and image blending for paper figures. Both fonts are locally hosted WOFF2 files with OFL licenses in `assets/fonts/`. Responsive layouts preserve the original table’s horizontal scrolling.
+- `editorial.css`: low-saturation navy, white, and cool-gray presentation with Newsreader display and reading text, DM Sans interface text, a lightly softened demo perimeter, and image blending for paper figures. Both fonts are locally hosted WOFF2 files with OFL licenses in `assets/fonts/`. Responsive layouts preserve the original table’s horizontal scrolling.
 - `script.js`: related-project rendering, the preserved three-step real-world frame viewer, and BibTeX copy. Analysis disclosure uses native HTML details. No benchmark switches, custom result charts, or data cards.
 - `research-projects.js`: related lab projects in the top strip. Replace eVTA for VLA's `url: null` with the confirmed public project URL when available. Add more objects for additional projects. Missing URLs render non-clickable “Coming soon” items.
 - `assets/seekvln.bib`: arXiv citation. Keep this synchronized with `#bibtex-code` in the HTML.
 - `assets/results-table.png`: original Table 1, rendered directly from page 7 of the supplied PDF at 360 dpi. Crop in rendered pixels: x=525, y=395, width=2010, height=1430. PDF hyperlink annotation outlines are hidden; table content, references, numbers, row shading, and formatting are preserved.
 - `assets/deep-dive.webp`: rendered original `Figures/deep-dive.pdf`.
 
-The main narrative has three sections: Problem & Motivation, Methodology, and Results. Repeated abstract, related-work, and conclusion copy has been condensed into this narrative. Chapter numbering, a three-part reading guide, and two short method columns provide visual hierarchy. Original behavioral-analysis and qualitative-result figures remain in expandable supplements. The opening real-world viewer is retained. The title's resource row contains Paper, Code (planned), and Models (planned); BibTeX remains at the bottom of the page.
+The main narrative has three sections: Problem & Motivation, Methodology, and Results. Repeated abstract, related-work, and conclusion copy has been condensed into this narrative. Chapter numbering, a three-part title-only reading guide, and two short method columns provide visual hierarchy. Original behavioral-analysis and qualitative-result figures remain in expandable supplements. The opening real-world viewer is retained. The title's resource row contains Paper, Code (planned), and Models (planned); BibTeX remains at the bottom of the page.
 
 ## Authorship
 
