@@ -7,7 +7,7 @@
   --figure-cyan: #177ea2; --figure-green: #337746; --figure-amber: #96620c;
 }
 html { scroll-padding-top: 20px; }
-body { background: #fff; color: #000; font-family: Newsreader, Georgia, serif; -webkit-font-smoothing: antialiased; }
+body { background: #fff; color: #000; font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
 a { color: #000; text-underline-offset: 3px; }
 a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline-color: #000; }
 p { margin: 0 0 12px; color: #000; font-size: 19px; line-height: 1.52; }
@@ -97,9 +97,9 @@ a.resource-button.primary:hover { background: #242424; }
 .rollout-controls button[aria-pressed=true] .step-index { color: #000; }
 .rollout-controls button:hover:not([aria-pressed=true]) { background: #f3f6f7; }
 .step-index { color: #000; font-size: 11px; }
-.rollout figcaption { display: block; padding: 10px 0 0; background: #fff; color: #000; font: 14px/1.5 "DM Sans", Arial, sans-serif; }
+.rollout figcaption { display: block; padding: 10px 0 0; background: #fff; color: #000; font: 14px/1.5 Arial, Helvetica, sans-serif; }
 .caption-label { display: inline; margin-right: 7px; color: #000; font-size: 14px; font-weight: 700; }
-.figure-note { max-width: 1000px; margin: 8px 0 0; padding: 0; color: #000; font: 13px/1.5 "DM Sans", Arial, sans-serif; }
+.figure-note { max-width: 1000px; margin: 8px 0 0; padding: 0; color: #000; font: 13px/1.5 Arial, Helvetica, sans-serif; }
 
 .paper-figure { margin: 22px 0 16px; border: 0; background: transparent; box-shadow: none; }
 .paper-figure .window-titlebar { margin-bottom: 8px; color: #000; }
@@ -107,7 +107,7 @@ a.resource-button.primary:hover { background: #242424; }
 .paper-figure img { width: 100%; height: auto; border-radius: 0; mix-blend-mode: multiply; }
 .paper-figure .table-scroll { margin: 0; }
 .paper-figure.original-table img { mix-blend-mode: multiply; }
-.paper-figure figcaption { max-width: 1000px; margin: 8px 0 0; padding: 0; border: 0; background: transparent; color: #000; font: 13px/1.55 "DM Sans", Arial, sans-serif; }
+.paper-figure figcaption { max-width: 1000px; margin: 8px 0 0; padding: 0; border: 0; background: transparent; color: #000; font: 13px/1.55 Arial, Helvetica, sans-serif; }
 .paper-figure figcaption strong { color: #000; }
 .result-subhead { margin: 27px 0 8px; color: #000; font: 500 27px/1.2 Newsreader, Georgia, serif; letter-spacing: -.02em; }
 
