@@ -11,8 +11,8 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1` in this directory and open ht
 ## Content and editing
 
 - `index.html`: paper title, author list, affiliations, manuscript narrative, original figures and table, arXiv paper links, and BibTeX.
-- `styles.css`: white background, Klein blue (`#002FA7`) accents, responsive editorial layout. Manrope headings and Source Sans 3 body text use locally hosted WOFF2 variable fonts; OFL license files are included in `assets/fonts/`.
-- `retro.css`: the presentation layer: an enlarged header, open whitespace, restrained Klein-blue typography, subtle chapter backgrounds, and functional figure links. Responsive layouts preserve the original table’s horizontal scrolling.
+- `styles.css`: base layout and responsive behavior.
+- `editorial.css`: final black, white, and warm beige presentation with Newsreader display and reading text, DM Sans interface text, a softened demo perimeter, and image blending for paper figures. Both fonts are locally hosted WOFF2 files with OFL licenses in `assets/fonts/`. Responsive layouts preserve the original table’s horizontal scrolling.
 - `script.js`: related-project rendering, the preserved three-step real-world frame viewer, and BibTeX copy. Analysis disclosure uses native HTML details. No benchmark switches, custom result charts, or data cards.
 - `research-projects.js`: related lab projects in the top strip. Replace eVTA for VLA's `url: null` with the confirmed public project URL when available. Add more objects for additional projects. Missing URLs render non-clickable “Coming soon” items.
 - `assets/seekvln.bib`: arXiv citation. Keep this synchronized with `#bibtex-code` in the HTML.
@@ -37,7 +37,7 @@ Research content comes from `paper-writing/iclr2027_conference.tex` and the supp
 - Framework, Progress Myopia, deep-dive, and simulation figures are rendered from the original figure PDFs.
 - SR gains of 12.7 and 7.5 are percentage points. The physical-robot rollout is qualitative.
 
-Academic structure references: [IGen](https://chenghaogu.github.io/IGen/) and [Progress-Think](https://horizonrobotics.github.io/robot_lab/progress-think/). Their logos, brand assets, and text are not reused.
+Academic structure references: [IGen](https://chenghaogu.github.io/IGen/) and [Progress-Think](https://horizonrobotics.github.io/robot_lab/progress-think/). Visual direction references: [Physical Intelligence](https://www.pi.website/) and [Thinking Machines Lab](https://thinkingmachines.ai/). Their logos, brand assets, and text are not reused. Scientific figures remain unedited; CSS blends their light backgrounds with the page.
 
 ## Deployment
 
