@@ -1,7 +1,7 @@
 /* Cool editorial hierarchy for the SeekVLN project page. */
 @font-face { font-family: "Newsreader"; src: url("assets/fonts/newsreader-latin.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
 @font-face { font-family: "DM Sans"; src: url("assets/fonts/dm-sans-latin.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
-:root { --blue: #22354a; --ink: #22354a; --muted: #607080; --line: #dfe6ec; --tint: #f0f4f6; --chapter-tint: #f0f4f6; --soft-accent: #e8eef2; }
+:root { --blue: #22354a; --ink: #111; --muted: #383d42; --line: #dfe6ec; --tint: #f0f4f6; --chapter-tint: #f0f4f6; --soft-accent: #e8eef2; --figure-cyan: #177ea2; --figure-green: #337746; --figure-amber: #96620c; }
 body { background: #fff; color: var(--ink); font-family: "Newsreader", Georgia, serif; }
 p { font-size: 20px; line-height: 1.6; }
 a { text-underline-offset: 3px; }
@@ -129,6 +129,11 @@ footer { padding-block: 35px; }
 .site-header nav, .related-research, .paper-authors, .resource-links, .page-outline, .window-titlebar, .hero-footnote, .rollout-controls, .rollout figcaption, .image-label, .evidence-tag, .paper-figure figcaption, .stage-label, .section-kicker, .detail-label, .research-detail summary, .citation-note, .citation-heading .text-link, footer { font-family: "DM Sans", Arial, sans-serif; }
 .paper-heading h1, .title-lead, .section-heading h2, .citation-heading h2, .research-detail h3 { font-family: "Newsreader", Georgia, serif; }
 .title-lead { font-size: 68px; font-weight: 600; line-height: 1.03; letter-spacing: -.045em; }
+.title-seek { color: var(--figure-cyan); }
+.title-before { color: var(--figure-green); }
+.title-you { color: var(--figure-amber); }
+.title-move { color: #177f88; }
+.title-colon { color: var(--ink); }
 .title-detail { font-family: "DM Sans", Arial, sans-serif; font-size: 28px; font-weight: 500; line-height: 1.35; letter-spacing: -.04em; }
 .paper-tldr { font-size: 24px; line-height: 1.35; }
 .paper-tldr strong { font-family: "DM Sans", Arial, sans-serif; }
@@ -151,6 +156,14 @@ a.resource-button.primary:hover { background: #17283a; }
 .rollout figcaption { background: #fff; }
 .paper-figure .window-titlebar { color: #4f6173; }
 .paper-figure figcaption strong { color: var(--ink); }
+
+/* Paper-figure colors mark navigation through the page; reading text stays dark. */
+.paper-tldr strong, .page-outline a:nth-child(1) > span, #idea .section-number { color: var(--figure-cyan); }
+.page-outline a:nth-child(2) > span, #method .section-number, .method-stages article:first-child h3 span { color: var(--figure-green); }
+.page-outline a:nth-child(3) > span, #results .section-number, .method-stages article:last-child h3 span { color: var(--figure-amber); }
+.section-kicker, .stage-label, .detail-label { color: #3d4348; }
+.paper-figure .window-titlebar { color: #3d4348; }
+.section-heading h2, .citation-heading h2 { color: var(--ink); }
 
 @media (max-width: 1000px) {
   .wrap { width: calc(100% - 60px); }
