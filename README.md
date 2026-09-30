@@ -12,14 +12,14 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1` in this directory and open ht
 
 - `index.html`: paper title, author list, affiliations, manuscript narrative, original figures and table, arXiv paper links, and BibTeX.
 - `styles.css`: base layout and responsive behavior.
-- `editorial.css`: low-saturation navy, white, and cool-gray presentation with Newsreader display and reading text, DM Sans interface text, a lightly softened demo perimeter, and image blending for paper figures. Both fonts are locally hosted WOFF2 files with OFL licenses in `assets/fonts/`. Responsive layouts preserve the original table’s horizontal scrolling.
-- `script.js`: related-project rendering, the preserved three-step real-world frame viewer, and BibTeX copy. Analysis disclosure uses native HTML details. No benchmark switches, custom result charts, or data cards.
+- `editorial.css`: compact black-on-white academic presentation with paper-figure colors in the title and method labels, Newsreader reading text, DM Sans interface text, a lightly softened demo perimeter, and image blending for paper figures. Both fonts are locally hosted WOFF2 files with OFL licenses in `assets/fonts/`. Responsive layouts preserve the original table’s horizontal scrolling.
+- `script.js`: related-project rendering, the three-step real-world frame viewer, and BibTeX copy. No benchmark switches, custom result charts, or data cards.
 - `research-projects.js`: related lab projects in the top strip. Replace eVTA for VLA's `url: null` with the confirmed public project URL when available. Add more objects for additional projects. Missing URLs render non-clickable “Coming soon” items.
 - `assets/seekvln.bib`: arXiv citation. Keep this synchronized with `#bibtex-code` in the HTML.
 - `assets/results-table.png`: original Table 1, rendered directly from page 7 of the supplied PDF at 360 dpi. Crop in rendered pixels: x=525, y=395, width=2010, height=1430. PDF hyperlink annotation outlines are hidden; table content, references, numbers, row shading, and formatting are preserved.
 - `assets/deep-dive.webp`: rendered original `Figures/deep-dive.pdf`.
 
-The main narrative has three sections: Problem & Motivation, Methodology, and Results. Repeated abstract, related-work, and conclusion copy has been condensed into this narrative. Chapter numbering, a three-part title-only reading guide, and two short method columns provide visual hierarchy. Original behavioral-analysis and qualitative-result figures remain in expandable supplements. The opening real-world viewer is retained. The title's resource row contains Paper, Code (planned), and Models (planned); BibTeX remains at the bottom of the page.
+The main narrative follows the requested order: Contributions, Real-world rollout, Introduction, Methodology, and Results. Copy is condensed from the public arXiv submission TeX while preserving its claims and qualifiers. All narrative sections use a single text column except the two-stage Methodology explanation. The original results table and paper figures remain visible, and the three-step real-world viewer sits before the Introduction. The title's resource row contains Paper, Code (planned), and Models (planned); BibTeX remains at the bottom of the page.
 
 ## Authorship
 
@@ -29,7 +29,7 @@ Paper links point to the owner-provided arXiv preprint at https://arxiv.org/pdf/
 
 ## Research provenance
 
-Research content comes from `paper-writing/iclr2027_conference.tex` and the supplied PDF, read on 2026-09-29. The PDF is the original 2026-09-26 version. Text follows the latest local source where wording differs.
+Research content comes from `paper-writing/arxiv-submission/seekvln.tex`, reviewed on 2026-09-30, with figures and the original results table reproduced from the manuscript assets. The local PDF is the original supplied anonymous manuscript and is retained unchanged.
 
 - Table 1: R2R-CE SR 54.8 / 61.0 / 67.5 and SPL 46.9 / 55.9 / 61.4; RxR-CE SR 52.2 / 55.7 / 59.7 and SPL 40.2 / 47.4 / 50.3 (base / FRG-SFT / C2PO-RFT).
 - The adaptive-trigger analysis uses a separate 100-episode subset: never / periodic / adaptive SR 52 / 62 / 73, seek rates 0 / 50 / 29.8, SPL 48 / 53 / 67.
