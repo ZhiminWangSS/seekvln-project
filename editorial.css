@@ -49,6 +49,8 @@ p { margin: 0 0 12px; color: #000; font-size: 19px; line-height: 1.52; }
 .paper-authors { max-width: 1030px; margin: 22px auto 0; color: #000; font-family: "DM Sans", Arial, sans-serif; font-size: 16px; line-height: 1.55; }
 .author-list { gap: 4px 16px; }
 .author, .paper-authors sup, .paper-authors .affiliations, .paper-authors .author-notes { color: #000; }
+.author-link { color: #000; text-decoration: underline; text-decoration-color: #949494; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.author-link:hover { text-decoration-color: #000; }
 .paper-authors .affiliations { max-width: 1010px; gap: 3px 17px; margin: 12px auto 0; font-size: 13px; line-height: 1.5; }
 .paper-authors .author-notes { margin-top: 7px; font-size: 12px; }
 .paper-authors sup { font-size: 11px; }

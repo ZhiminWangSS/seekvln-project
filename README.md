@@ -24,6 +24,7 @@ The main narrative follows the requested order: Contributions, Real-world rollou
 ## Authorship
 
 The 11 authors, their order, six affiliations, and correspondence designations were supplied explicitly by the owner in this task. They appear below the title and in the downloadable citation. Only Yaowei Wang and Zhi Wang are marked corresponding authors; no equal-contribution designations were supplied.
+Confirmed personal-homepage links are attached to Zhimin Wang, Duo Wu, Linjia Kang, and Zhi Wang in the author list; the other names remain plain text.
 
 Paper links point to the owner-provided arXiv preprint at https://arxiv.org/pdf/2609.37353. The local PDF is the original supplied anonymous manuscript, unchanged and retained as an asset. No conference acceptance has been invented. The research implementation is not included; the separate SeekVLN repository remains private.
 
