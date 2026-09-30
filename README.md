@@ -10,12 +10,12 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1` in this directory and open ht
 
 ## Content and editing
 
-- `index.html`: paper title, author list, affiliations, manuscript narrative, original figures and table, resources, and BibTeX.
+- `index.html`: paper title, author list, affiliations, manuscript narrative, original figures and table, arXiv paper links, and BibTeX.
 - `styles.css`: white background, Klein blue (`#002FA7`) accents, responsive editorial layout. Manrope headings and Source Sans 3 body text use locally hosted WOFF2 variable fonts; OFL license files are included in `assets/fonts/`.
 - `retro.css`: the presentation layer: an enlarged header, open whitespace, restrained Klein-blue typography, subtle chapter backgrounds, and functional figure links. Responsive layouts preserve the original table’s horizontal scrolling.
 - `script.js`: related-project rendering, the preserved three-step real-world frame viewer, and BibTeX copy. Analysis disclosure uses native HTML details. No benchmark switches, custom result charts, or data cards.
 - `research-projects.js`: related lab projects in the top strip. Replace eVTA for VLA's `url: null` with the confirmed public project URL when available. Add more objects for additional projects. Missing URLs render non-clickable “Coming soon” items.
-- `assets/seekvln.bib`: manuscript citation. Keep this synchronized with `#bibtex-code` in the HTML.
+- `assets/seekvln.bib`: arXiv citation. Keep this synchronized with `#bibtex-code` in the HTML.
 - `assets/results-table.png`: original Table 1, rendered directly from page 7 of the supplied PDF at 360 dpi. Crop in rendered pixels: x=525, y=395, width=2010, height=1430. PDF hyperlink annotation outlines are hidden; table content, references, numbers, row shading, and formatting are preserved.
 - `assets/deep-dive.webp`: rendered original `Figures/deep-dive.pdf`.
 
@@ -25,7 +25,7 @@ The main narrative has three sections: Problem & Motivation, Methodology, and Re
 
 The 11 authors, their order, six affiliations, and correspondence designations were supplied explicitly by the owner in this task. They appear below the title and in the downloadable citation. Only Yaowei Wang and Zhi Wang are marked corresponding authors; no equal-contribution designations were supplied.
 
-The downloadable paper is the original supplied anonymous manuscript, unchanged. No conference acceptance or arXiv identifier has been invented. The research implementation is not included; the separate SeekVLN repository remains private.
+Paper links point to the owner-provided arXiv preprint at https://arxiv.org/pdf/2609.37353. The local PDF is the original supplied anonymous manuscript, unchanged and retained as an asset. No conference acceptance has been invented. The research implementation is not included; the separate SeekVLN repository remains private.
 
 ## Research provenance
 

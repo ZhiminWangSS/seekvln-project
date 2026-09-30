@@ -9,12 +9,13 @@
   <meta property="og:title" content="SeekVLN — Seek before you move">
   <meta property="og:description" content="Learning to acquire the evidence that makes the next navigation decision reliable.">
   <meta property="og:url" content="https://zhiminwangss.github.io/seekvln-project/">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2609.37353">
   <link rel="canonical" href="https://zhiminwangss.github.io/seekvln-project/">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23002FA7'/%3E%3Cpath d='M14 44V20h36M32 20v24h18' fill='none' stroke='%23ffffff' stroke-width='5'/%3E%3Ccircle cx='14' cy='44' r='5' fill='%23ffffff'/%3E%3C/svg%3E">
   <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css?v=focused-1">
-  <link rel="stylesheet" href="retro.css?v=4">
+  <link rel="stylesheet" href="retro.css?v=5">
   <script src="research-projects.js" defer></script>
   <script src="script.js?v=focused-1" defer></script>
   <title>SeekVLN | Seek Before You Move: Evidence Seeking for Progress Grounding in Vision-Language Navigation</title>
@@ -26,7 +27,7 @@
   </aside>
   <header class="site-header wrap">
     <a class="wordmark" href="#" aria-label="SeekVLN home"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M6 28V8h24M18 8v20h12"/><circle cx="6" cy="28" r="3"/></svg>SeekVLN</a>
-    <nav aria-label="Main navigation"><a href="#idea">Motivation</a><a href="#method">Method</a><a href="#results">Results</a><a class="nav-paper" href="assets/seekvln-paper.pdf" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a></nav>
+    <nav aria-label="Main navigation"><a href="#idea">Motivation</a><a href="#method">Method</a><a href="#results">Results</a><a class="nav-paper" href="https://arxiv.org/pdf/2609.37353" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a></nav>
   </header>
   <main id="main">
     <section class="hero wrap" aria-labelledby="hero-title">
@@ -41,7 +42,7 @@
           <div class="author-notes">* Corresponding authors: Yaowei Wang and Zhi Wang</div>
         </div>
         <div class="resource-links" aria-label="Paper resources">
-          <a class="resource-button primary" href="assets/seekvln-paper.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2h7l4 4v12H5zM12 2v5h4M8 11h5M8 14h5"/></svg>Paper <span aria-hidden="true">↗</span></a>
+          <a class="resource-button primary" href="https://arxiv.org/pdf/2609.37353" target="_blank" rel="noopener"><span class="arxiv-icon" aria-hidden="true">ar<span>X</span>iv</span>Paper <span aria-hidden="true">↗</span></a>
           <span class="resource-button unavailable"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m6 5-5 5 5 5m8-10 5 5-5 5M12 3 8 17"/></svg>Code <small>Planned</small></span>
           <span class="resource-button unavailable"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m10 2 8 4v8l-8 4-8-4V6zm-8 4 8 4 8-4m-8 4v8"/></svg>Models <small>Planned</small></span>
         </div>
@@ -95,8 +96,8 @@
     <section class="focus-section wrap" id="results" aria-labelledby="results-title">
       <div class="section-heading"><span class="section-number">03</span><div><div class="section-kicker">Results</div><h2 id="results-title">More reliable navigation.</h2></div></div>
       <p class="section-summary">Both training stages improve performance over Aux-Think. On R2R-CE and RxR-CE validation-unseen, the full model improves success rate by <strong>12.7 and 7.5 percentage points</strong>, respectively. The complete benchmark comparison is reproduced below.</p>
-      <figure class="paper-figure original-table"><div class="window-titlebar"><span class="window-glyph" aria-hidden="true"></span><span class="window-title">Table 01 / Benchmark results</span><span class="window-lines" aria-hidden="true"></span><a class="window-open" href="assets/results-table.png" target="_blank" rel="noopener" aria-label="Open Table 01 / Benchmark results at full resolution">Open ↗</a></div><div class="table-scroll" role="region" aria-label="Original Table 1 from the paper; horizontally scrollable on narrow screens" tabindex="0"><a href="assets/results-table.png" target="_blank" rel="noopener" aria-label="Open the original benchmark table at full resolution"><img src="assets/results-table.png" width="2010" height="1430" alt="Original Table 1 comparing 20 methods and all reported R2R-CE and RxR-CE validation-unseen metrics. SeekVLN-C2PO-RFT achieves R2R NE 3.7, OSR 75.2, SR 67.5, SPL 61.4; RxR NE 4.9, SR 59.7, SPL 50.3, nDTW 63.6." loading="lazy"></a></div><figcaption>Original Table 1 from the manuscript. <a href="assets/seekvln-paper.pdf#page=7" target="_blank" rel="noopener">View in the paper ↗</a></figcaption></figure>
-      <p class="results-note">FRG-SFT establishes the initial behavior; C2PO further improves when to seek and how to use the acquired evidence. Full results and evaluation protocols are available in the <a href="assets/seekvln-paper.pdf" target="_blank" rel="noopener">paper ↗</a>.</p>
+      <figure class="paper-figure original-table"><div class="window-titlebar"><span class="window-glyph" aria-hidden="true"></span><span class="window-title">Table 01 / Benchmark results</span><span class="window-lines" aria-hidden="true"></span><a class="window-open" href="assets/results-table.png" target="_blank" rel="noopener" aria-label="Open Table 01 / Benchmark results at full resolution">Open ↗</a></div><div class="table-scroll" role="region" aria-label="Original Table 1 from the paper; horizontally scrollable on narrow screens" tabindex="0"><a href="assets/results-table.png" target="_blank" rel="noopener" aria-label="Open the original benchmark table at full resolution"><img src="assets/results-table.png" width="2010" height="1430" alt="Original Table 1 comparing 20 methods and all reported R2R-CE and RxR-CE validation-unseen metrics. SeekVLN-C2PO-RFT achieves R2R NE 3.7, OSR 75.2, SR 67.5, SPL 61.4; RxR NE 4.9, SR 59.7, SPL 50.3, nDTW 63.6." loading="lazy"></a></div><figcaption>Original Table 1 from the manuscript. <a href="https://arxiv.org/pdf/2609.37353#page=7" target="_blank" rel="noopener">View in the paper ↗</a></figcaption></figure>
+      <p class="results-note">FRG-SFT establishes the initial behavior; C2PO further improves when to seek and how to use the acquired evidence. Full results and evaluation protocols are available in the <a href="https://arxiv.org/pdf/2609.37353" target="_blank" rel="noopener">paper ↗</a>.</p>
       <details class="research-detail" id="behavior"><summary><div><span class="detail-label">Behavioral analysis</span><h3>Does seeking more often help?</h3></div><span class="expand-icon" aria-hidden="true">+</span></summary><div class="detail-content"><p>On a separate 100-episode R2R-CE subset, adaptive seeking reaches 73% success with a 29.8% seek rate. Periodic seeking reaches 62% success while seeking at 50% of decisions. This supports learning <em>when</em> evidence is needed.</p><figure class="paper-figure"><div class="window-titlebar"><span class="window-glyph" aria-hidden="true"></span><span class="window-title">Figure 03 / Evidence-seeking behavior</span><span class="window-lines" aria-hidden="true"></span><a class="window-open" href="assets/deep-dive.webp" target="_blank" rel="noopener" aria-label="Open Figure 03 / Evidence-seeking behavior at full resolution">Open ↗</a></div><a href="assets/deep-dive.webp" target="_blank" rel="noopener"><img src="assets/deep-dive.webp" width="2400" height="752" alt="Original paper Figure 3: trigger strategy comparison, beneficial action change rate during training, and progress gain from evidence seeking." loading="lazy"></a><figcaption><strong>Figure 3.</strong> Deep analysis of evidence-seeking behavior, reproduced from the paper.</figcaption></figure><p>During reinforcement fine-tuning, beneficial action changes increase from 45.6% to 55.9%. Mean short-horizon progress gain also improves, indicating that the acquired evidence increasingly benefits navigation.</p></div></details>
       <details class="research-detail" id="qualitative"><summary><div><span class="detail-label">Qualitative results</span><h3>What evidence does the agent find?</h3></div><span class="expand-icon" aria-hidden="true">+</span></summary><div class="detail-content"><p>In simulation, side views reveal a dining area and a hallway beyond a kitchen island. The physical-robot example at the top of this page shows the same principle: locate the unseen chair before turning toward it.</p><figure class="paper-figure"><div class="window-titlebar"><span class="window-glyph" aria-hidden="true"></span><span class="window-title">Figure 04 / Qualitative rollouts</span><span class="window-lines" aria-hidden="true"></span><a class="window-open" href="assets/simulation.webp" target="_blank" rel="noopener" aria-label="Open Figure 04 / Qualitative rollouts at full resolution">Open ↗</a></div><a href="assets/simulation.webp" target="_blank" rel="noopener"><img src="assets/simulation.webp" width="2000" height="1125" alt="Original simulation rollout figure showing evidence seeking for a dining area and a hallway beyond a kitchen island." loading="lazy"></a><figcaption><strong>Figure 4.</strong> Two SEEK decisions in a simulated trajectory. The agent first locates the dining area on the left, then identifies a hallway beyond the kitchen island on the right.</figcaption></figure><p class="figure-note">The physical-robot rollout is qualitative and does not establish a real-world benchmark success rate.</p></div></details>
     </section>
@@ -104,13 +105,14 @@
     <section class="citation-section" id="bibtex" aria-labelledby="bibtex-title"><div class="wrap section">
 
       <div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><a class="text-link" href="assets/seekvln.bib" download>Download .bib <span aria-hidden="true">↓</span></a></div>
-      <p class="citation-note">Cite the manuscript.</p>
+      <p class="citation-note">Cite the arXiv preprint.</p>
       <div class="bibtex-panel"><div class="bibtex-toolbar"><span>seekvln.bib</span><button type="button" id="copy-bibtex">Copy BibTeX</button></div><pre><code id="bibtex-code">@misc{seekvln2026,
   title = {Seek Before You Move: Evidence Seeking for Progress Grounding in Vision-Language Navigation},
   author = {Wang, Zhimin and Zhu, Meiyuan and Wu, Duo and Kang, Linjia and Wang, Yajun and Ni, Yuan and Wang, Xiaohang and Pan, Tianlu and Jiang, Jingyan and Wang, Yaowei and Wang, Zhi},
   year  = {2026},
-  url   = {https://zhiminwangss.github.io/seekvln-project/},
-  note  = {Research manuscript}
+  eprint = {2609.37353},
+  archivePrefix = {arXiv},
+  url   = {https://arxiv.org/abs/2609.37353}
 }</code></pre></div>
       <p id="copy-status" class="copy-status" aria-live="polite"></p>
     </div></section>
