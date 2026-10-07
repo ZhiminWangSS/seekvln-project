@@ -14,7 +14,7 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1` in this directory and open ht
 - `styles.css`: base layout and responsive behavior.
 - `editorial.css`: compact black-on-white academic presentation with paper-figure colors in the title and method labels, Arial reading text and figure captions, Newsreader display headings, DM Sans interface text, a lightly softened demo perimeter, and image blending for paper figures. Newsreader and DM Sans are locally hosted WOFF2 files with OFL licenses in `assets/fonts/`. Responsive layouts preserve the original table’s horizontal scrolling.
 - `script.js`: related-project rendering, the three-step real-world frame viewer, and BibTeX copy. No benchmark switches, custom result charts, or data cards.
-- `research-projects.js`: related lab projects in the top strip. Replace eVTA for VLA's `url: null` with the confirmed public project URL when available. Add more objects for additional projects. Missing URLs render non-clickable “Coming soon” items.
+- `research-projects.js`: related lab projects in the top strip. eVTA for VLA links to its public project page. Add more objects for additional projects. Missing URLs render non-clickable “Coming soon” items.
 - `assets/seekvln.bib`: arXiv citation. Keep this synchronized with `#bibtex-code` in the HTML.
 - `assets/results-table.png`: original Table 1, rendered directly from page 7 of the supplied PDF at 360 dpi. Crop in rendered pixels: x=525, y=395, width=2010, height=1430. PDF hyperlink annotation outlines are hidden; table content, references, numbers, row shading, and formatting are preserved.
 - `assets/deep-dive.webp`: rendered original `Figures/deep-dive.pdf`.
